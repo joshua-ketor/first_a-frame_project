@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="script/aframe.min.js"></script>
+    <title>A-Frame Presentation</title>
+</head>
+<body>
+    <a-scene>
+        <a-assets>
+            <img id="grass" src="txtures/grass.jpg">
+            <img id="wall" src="txtures/TexturesCom_BrickRound0046_1_seamless_S.jpg">
+            <img id="decor-centre" src="txtures/TexturesCom_FloorsCheckerboard0034_1_M.jpg">
+            <img id="sky" src="txtures/clear-sunny-sky.jpg">
+            <img id="chair-material" src="txtures/floor-1024-2.jpg">
+            <img id="podium-NRM" src="txtures/floor-1024-NRM.jpg">
+            <img id="podium" src="txtures/floor-1024.jpg">
+            <img id="cup" src="txtures/milk.jpg">
+            <img id="milo" src="txtures/milo.jpg">
+            <img id="milk" src="txtures/peak_milk.jpg">
+            <img id="straw" src="txtures/straw.jpeg">
+            <img id="table" src="txtures/wood.jpg">
+        </a-assets>
+
+        <!-- Sky -->
+        <a-sky src="#sky"
+               rotation="0 64 0"
+        ></a-sky>
+        <!-- Platform for objects -->
+        <a-box src="#podium" 
+               scale="30 0.2 30"
+               repeat="5 5 1"
+        >
+        </a-box>
+        <!-- Centre-Table platform -->
+        <a-box src="#decor-centre"
+               height="0.5"
+               width="20"
+               depth="20"
+        ></a-box>
+        <!-- Roof -->
+        <a-cone 
+                src="#straw"
+                repeat="50 50 1"
+                position="0 12 0"
+                radius-bottom="15"
+                height="4"
+        ></a-cone>
+
+        <!-- Pillars -->
+        <!-- Left front pillar -->
+        <a-box src="#table"
+                width="0.5"
+                height="10"
+                depth="1"
+                position="-10 5 10"
+        ></a-box>
+
+        <!-- Right front pillar -->
+        <a-box src="#table"
+                width="0.5"
+                height="10"
+                depth="1"
+                position="10 5 10"
+        ></a-box>
+
+        <!-- Left back pillar -->
+        <a-box src="#table"
+                width="0.5"
+                height="10"
+                depth="1"
+                position="-10 5 -10"
+        ></a-box>
+
+        <!-- Right back pillar -->
+        <a-box src="#table"
+                width="0.5"
+                height="10"
+                depth="1"
+                position="10 5 -10"
+        ></a-box>
+
+        <!-- Walls -->
+        <!-- Left wall -->
+        <a-box
+               src="#wall"
+               width="1"
+               height="10"
+               depth="20"
+               position="-10 1 0"
+        >
+        
+        </a-box>
+        <!-- Right wall -->
+        <a-box
+               src="#wall"
+               width="1"
+               height="10"
+               depth="20"
+               position="10 1 0"
+        >
+        
+        </a-box>
+        <!-- Back Wall -->
+        <a-box
+               src="#wall"
+               width="20"
+               height="10"
+               depth="1"
+               position="0 1 -10"
+        ></a-box>
+        <!-- Ground -->
+        <a-plane src="#grass"
+                 color="#00ff00"
+                 rotation="-90 0 0"
+                 scale="10000 10000 0"
+                 repeat="5000 5000"
+        ></a-plane>
+
+        <!-- Table -->
+        <a-cone 
+                src="#table"    
+                height="2"
+                radius-bottom="2"
+                radius-top="1"
+        ></a-cone>
+        <a-cone 
+                src="#table"
+                height="1"
+                radius-bottom="1"
+                radius-top="2"
+                position="0 1 0"
+        ></a-cone>
+        <a-cylinder 
+                  src="#table"
+                  height="0.2"
+                  radius="5"
+                  position="0 1.5 0"
+                  sid="double"
+        ></a-cylinder>
+
+        <!-- Objects on table -->
+        
+        <a-entity position="0 0 0">
+            <!-- Milo -->
+            <a-cylinder position="0 1.8 0"
+                        src="#milo"
+                        radius="0.3"
+                        height="0.9"
+                        open-ended="true"
+                        side="double"
+            >
+                <a-cylinder
+                color="#00aa00"
+                radius="0.3"
+                height="0.9"
+                >
+                </a-cylinder>
+            </a-cylinder>
+
+            <!-- Milk -->
+            <a-cylinder position="0 1.8 1"
+                        src="#milk"
+                        radius="0.3"
+                        height="0.9"
+                        open-ended="true"
+                        side="double"
+            >
+                <a-cylinder color="#ffffff"
+                            radius="0.3"
+                            height="0.9"
+                ></a-cylinder>
+            </a-cylinder>
+
+            <!-- Back Cup -->
+            <a-cone position="0 1.8 -4"
+                    src="#cup"
+                    radius-top="0.2"
+                    radius-bottom="0.15"
+                    height="0.5"
+                    open-ended="true"
+                    side="double"
+            >
+                <!-- Beverage -->
+                <a-cone color="brown"
+                        radius-top="0.2"
+                        radius-bottom="0.10"
+                        height="0.45"
+                ></a-cone>
+            </a-cone>
+            <!-- Front Cup -->
+            <a-cone position="0 1.8 4"
+                    src="#cup"
+                    radius-top="0.2"
+                    radius-bottom="0.15"
+                    height="0.5"
+                    open-ended="true"
+                    side="double"
+            >
+                <!-- Beverage -->
+                <a-cone color="brown"
+                        radius-top="0.2"
+                        radius-bottom="0.10"
+                        height="0.45"
+                ></a-cone>
+            </a-cone>
+        </a-entity>
+
+        <!-- Back Chair -->
+        <a-entity position="0 0 -7">
+            <!-- Seat of the chair -->
+            <a-box position="0 1 0"
+                   src="#table"
+                   depth="1"
+                   height="0.05" 
+                   src="#chair-material"
+            ></a-box>
+            <!-- Back of the chair -->
+            <a-plane position="0 1.5 -0.5"
+                     src="#table"
+                     height="1"
+                     width="1"
+                     rotation="-10 0 0"
+                     src="#chair-material"
+                     side="double"
+            ></a-plane>
+            <!-- Legs of the chair -->
+            <a-box position="-0.35 0.25 0.35" depth="0.1" height="1.5" width="0.1" color="brown"></a-box>
+            <a-box position="0.35 0.25 0.35" depth="0.1" height="1.5" width="0.1" color="brown"></a-box>
+            <a-box position="-0.35 0.25 -0.35" depth="0.1" height="1.5" width="0.1" color="brown"></a-box>
+            <a-box position="0.35 0.25 -0.35" depth="0.1" height="1.5" width="0.1" color="brown"></a-box>
+        </a-entity>
+
+        <!-- Front Chair -->
+        <a-entity position="0 0 7">
+            <!-- Seat of the chair -->
+            <a-box position="0 1 0"
+                   src="#table"
+                   depth="1"
+                   height="0.05" 
+                   src="#chair-material"
+            ></a-box>
+            <!-- Back of the chair -->
+            <a-plane position="0 1.5 0.5"
+                     src="#table"
+                     height="1"
+                     width="1"
+                     rotation="10 0 0"
+                     src="#chair-material"
+                     side="double"
+            ></a-plane>
+            <!-- Legs of the chair -->
+            <a-box position="-0.35 0.25 0.35" depth="0.1" height="1.5" width="0.1" color="brown"></a-box>
+            <a-box position="0.35 0.25 0.35" depth="0.1" height="1.5" width="0.1" color="brown"></a-box>
+            <a-box position="-0.35 0.25 -0.35" depth="0.1" height="1.5" width="0.1" color="brown"></a-box>
+            <a-box position="0.35 0.25 -0.35" depth="0.1" height="1.5" width="0.1" color="brown"></a-box>
+        </a-entity>
+
+        <!-- Camera -->
+        <a-camera position="0 7 20"></a-camera>
+    </a-scene>
+
+</body>
+</html>
